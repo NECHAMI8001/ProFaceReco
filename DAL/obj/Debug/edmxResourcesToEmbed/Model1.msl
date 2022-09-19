@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Project_FinishModelStoreContainer" CdmEntityContainer="Project_FinishEntities">
+    <EntitySetMapping Name="Grade_Tbl">
+      <EntityTypeMapping TypeName="Project_FinishModel.Grade_Tbl">
+        <MappingFragment StoreEntitySet="Grade_Tbl">
+          <ScalarProperty Name="Grade_Code" ColumnName="Grade_Code" />
+          <ScalarProperty Name="Grade_Name" ColumnName="Grade_Name" />
+          <ScalarProperty Name="Grade_Password" ColumnName="Grade_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Presence_Tbl">
+      <EntityTypeMapping TypeName="Project_FinishModel.Presence_Tbl">
+        <MappingFragment StoreEntitySet="Presence_Tbl">
+          <ScalarProperty Name="Presence_Code" ColumnName="Presence_Code" />
+          <ScalarProperty Name="Presence_Lesson_Name" ColumnName="Presence_Lesson_Name" />
+          <ScalarProperty Name="Presence_Student_ID" ColumnName="Presence_Student_ID" />
+          <ScalarProperty Name="Presence_Grade_Code" ColumnName="Presence_Grade_Code" />
+          <ScalarProperty Name="Presence_Date" ColumnName="Presence_Date" />
+          <ScalarProperty Name="Presence_TimeBLesson" ColumnName="Presence_TimeBLesson" />
+          <ScalarProperty Name="Presence_TimeMLesson" ColumnName="Presence_TimeMLesson" />
+          <ScalarProperty Name="Presence_TimeELesson" ColumnName="Presence_TimeELesson" />
+          <ScalarProperty Name="Presence_Hour" ColumnName="Presence_Hour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_Tbl">
+      <EntityTypeMapping TypeName="Project_FinishModel.Student_Tbl">
+        <MappingFragment StoreEntitySet="Student_Tbl">
+          <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+          <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+          <ScalarProperty Name="Student_Image" ColumnName="Student_Image" />
+          <ScalarProperty Name="Student_Grade_Code" ColumnName="Student_Grade_Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentsClassroom_Tbl">
+      <EntityTypeMapping TypeName="Project_FinishModel.StudentsClassroom_Tbl">
+        <MappingFragment StoreEntitySet="StudentsClassroom_Tbl">
+          <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+          <ScalarProperty Name="Grade_Code" ColumnName="Grade_Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

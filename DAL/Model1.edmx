@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Project_FinishModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Grade_Tbl">
+          <Key>
+            <PropertyRef Name="Grade_Code" />
+          </Key>
+          <Property Name="Grade_Code" Type="int" Nullable="false" />
+          <Property Name="Grade_Name" Type="nvarchar" MaxLength="3" />
+          <Property Name="Grade_Password" Type="int" />
+        </EntityType>
+        <EntityType Name="Presence_Tbl">
+          <Key>
+            <PropertyRef Name="Presence_Code" />
+          </Key>
+          <Property Name="Presence_Code" Type="int" Nullable="false" />
+          <Property Name="Presence_Lesson_Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Presence_Student_ID" Type="nvarchar" MaxLength="9" />
+          <Property Name="Presence_Grade_Code" Type="int" />
+          <Property Name="Presence_Date" Type="date" />
+          <Property Name="Presence_TimeBLesson" Type="bit" />
+          <Property Name="Presence_TimeMLesson" Type="bit" />
+          <Property Name="Presence_TimeELesson" Type="bit" />
+          <Property Name="Presence_Hour" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Student_Tbl">
+          <Key>
+            <PropertyRef Name="Student_ID" />
+          </Key>
+          <Property Name="Student_ID" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Student_Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Student_Image" Type="nvarchar" MaxLength="245" />
+          <Property Name="Student_Grade_Code" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentsClassroom_Tbl">
+          <Key>
+            <PropertyRef Name="Student_ID" />
+            <PropertyRef Name="Grade_Code" />
+          </Key>
+          <Property Name="Student_ID" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Grade_Code" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Presence___Prese__49C3F6B7">
+          <End Role="Student_Tbl" Type="Self.Student_Tbl" Multiplicity="0..1" />
+          <End Role="Presence_Tbl" Type="Self.Presence_Tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student_Tbl">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Presence_Tbl">
+              <PropertyRef Name="Presence_Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Presence___Prese__4AB81AF0">
+          <End Role="Grade_Tbl" Type="Self.Grade_Tbl" Multiplicity="0..1" />
+          <End Role="Presence_Tbl" Type="Self.Presence_Tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade_Tbl">
+              <PropertyRef Name="Grade_Code" />
+            </Principal>
+            <Dependent Role="Presence_Tbl">
+              <PropertyRef Name="Presence_Grade_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student_T__Stude__38996AB5">
+          <End Role="Grade_Tbl" Type="Self.Grade_Tbl" Multiplicity="0..1" />
+          <End Role="Student_Tbl" Type="Self.Student_Tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade_Tbl">
+              <PropertyRef Name="Grade_Code" />
+            </Principal>
+            <Dependent Role="Student_Tbl">
+              <PropertyRef Name="Student_Grade_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Project_FinishModelStoreContainer">
+          <EntitySet Name="Grade_Tbl" EntityType="Self.Grade_Tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Presence_Tbl" EntityType="Self.Presence_Tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Tbl" EntityType="Self.Student_Tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentsClassroom_Tbl" EntityType="Self.StudentsClassroom_Tbl" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Presence___Prese__49C3F6B7" Association="Self.FK__Presence___Prese__49C3F6B7">
+            <End Role="Student_Tbl" EntitySet="Student_Tbl" />
+            <End Role="Presence_Tbl" EntitySet="Presence_Tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Presence___Prese__4AB81AF0" Association="Self.FK__Presence___Prese__4AB81AF0">
+            <End Role="Grade_Tbl" EntitySet="Grade_Tbl" />
+            <End Role="Presence_Tbl" EntitySet="Presence_Tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student_T__Stude__38996AB5" Association="Self.FK__Student_T__Stude__38996AB5">
+            <End Role="Grade_Tbl" EntitySet="Grade_Tbl" />
+            <End Role="Student_Tbl" EntitySet="Student_Tbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Project_FinishModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Grade_Tbl">
+          <Key>
+            <PropertyRef Name="Grade_Code" />
+          </Key>
+          <Property Name="Grade_Code" Type="Int32" Nullable="false" />
+          <Property Name="Grade_Name" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Grade_Password" Type="Int32" />
+          <NavigationProperty Name="Presence_Tbl" Relationship="Self.FK__Presence___Prese__4AB81AF0" FromRole="Grade_Tbl" ToRole="Presence_Tbl" />
+          <NavigationProperty Name="Student_Tbl" Relationship="Self.FK__Student_T__Stude__38996AB5" FromRole="Grade_Tbl" ToRole="Student_Tbl" />
+        </EntityType>
+        <EntityType Name="Presence_Tbl">
+          <Key>
+            <PropertyRef Name="Presence_Code" />
+          </Key>
+          <Property Name="Presence_Code" Type="Int32" Nullable="false" />
+          <Property Name="Presence_Lesson_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Presence_Student_ID" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Name="Presence_Grade_Code" Type="Int32" />
+          <Property Name="Presence_Date" Type="DateTime" Precision="0" />
+          <Property Name="Presence_TimeBLesson" Type="Boolean" />
+          <Property Name="Presence_TimeMLesson" Type="Boolean" />
+          <Property Name="Presence_TimeELesson" Type="Boolean" />
+          <Property Name="Presence_Hour" Type="Time" Precision="7" />
+          <NavigationProperty Name="Grade_Tbl" Relationship="Self.FK__Presence___Prese__4AB81AF0" FromRole="Presence_Tbl" ToRole="Grade_Tbl" />
+          <NavigationProperty Name="Student_Tbl" Relationship="Self.FK__Presence___Prese__49C3F6B7" FromRole="Presence_Tbl" ToRole="Student_Tbl" />
+        </EntityType>
+        <EntityType Name="Student_Tbl">
+          <Key>
+            <PropertyRef Name="Student_ID" />
+          </Key>
+          <Property Name="Student_ID" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Student_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Image" Type="String" MaxLength="245" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Grade_Code" Type="Int32" />
+          <NavigationProperty Name="Grade_Tbl" Relationship="Self.FK__Student_T__Stude__38996AB5" FromRole="Student_Tbl" ToRole="Grade_Tbl" />
+          <NavigationProperty Name="Presence_Tbl" Relationship="Self.FK__Presence___Prese__49C3F6B7" FromRole="Student_Tbl" ToRole="Presence_Tbl" />
+        </EntityType>
+        <EntityType Name="StudentsClassroom_Tbl">
+          <Key>
+            <PropertyRef Name="Student_ID" />
+            <PropertyRef Name="Grade_Code" />
+          </Key>
+          <Property Name="Student_ID" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Grade_Code" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Presence___Prese__4AB81AF0">
+          <End Role="Grade_Tbl" Type="Self.Grade_Tbl" Multiplicity="0..1" />
+          <End Role="Presence_Tbl" Type="Self.Presence_Tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade_Tbl">
+              <PropertyRef Name="Grade_Code" />
+            </Principal>
+            <Dependent Role="Presence_Tbl">
+              <PropertyRef Name="Presence_Grade_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Student_T__Stude__38996AB5">
+          <End Role="Grade_Tbl" Type="Self.Grade_Tbl" Multiplicity="0..1" />
+          <End Role="Student_Tbl" Type="Self.Student_Tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade_Tbl">
+              <PropertyRef Name="Grade_Code" />
+            </Principal>
+            <Dependent Role="Student_Tbl">
+              <PropertyRef Name="Student_Grade_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Presence___Prese__49C3F6B7">
+          <End Role="Student_Tbl" Type="Self.Student_Tbl" Multiplicity="0..1" />
+          <End Role="Presence_Tbl" Type="Self.Presence_Tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student_Tbl">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Presence_Tbl">
+              <PropertyRef Name="Presence_Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Project_FinishEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Grade_Tbl" EntityType="Self.Grade_Tbl" />
+          <EntitySet Name="Presence_Tbl" EntityType="Self.Presence_Tbl" />
+          <EntitySet Name="Student_Tbl" EntityType="Self.Student_Tbl" />
+          <EntitySet Name="StudentsClassroom_Tbl" EntityType="Self.StudentsClassroom_Tbl" />
+          <AssociationSet Name="FK__Presence___Prese__4AB81AF0" Association="Self.FK__Presence___Prese__4AB81AF0">
+            <End Role="Grade_Tbl" EntitySet="Grade_Tbl" />
+            <End Role="Presence_Tbl" EntitySet="Presence_Tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Student_T__Stude__38996AB5" Association="Self.FK__Student_T__Stude__38996AB5">
+            <End Role="Grade_Tbl" EntitySet="Grade_Tbl" />
+            <End Role="Student_Tbl" EntitySet="Student_Tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Presence___Prese__49C3F6B7" Association="Self.FK__Presence___Prese__49C3F6B7">
+            <End Role="Student_Tbl" EntitySet="Student_Tbl" />
+            <End Role="Presence_Tbl" EntitySet="Presence_Tbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Project_FinishModelStoreContainer" CdmEntityContainer="Project_FinishEntities">
+          <EntitySetMapping Name="Grade_Tbl">
+            <EntityTypeMapping TypeName="Project_FinishModel.Grade_Tbl">
+              <MappingFragment StoreEntitySet="Grade_Tbl">
+                <ScalarProperty Name="Grade_Code" ColumnName="Grade_Code" />
+                <ScalarProperty Name="Grade_Name" ColumnName="Grade_Name" />
+                <ScalarProperty Name="Grade_Password" ColumnName="Grade_Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Presence_Tbl">
+            <EntityTypeMapping TypeName="Project_FinishModel.Presence_Tbl">
+              <MappingFragment StoreEntitySet="Presence_Tbl">
+                <ScalarProperty Name="Presence_Code" ColumnName="Presence_Code" />
+                <ScalarProperty Name="Presence_Lesson_Name" ColumnName="Presence_Lesson_Name" />
+                <ScalarProperty Name="Presence_Student_ID" ColumnName="Presence_Student_ID" />
+                <ScalarProperty Name="Presence_Grade_Code" ColumnName="Presence_Grade_Code" />
+                <ScalarProperty Name="Presence_Date" ColumnName="Presence_Date" />
+                <ScalarProperty Name="Presence_TimeBLesson" ColumnName="Presence_TimeBLesson" />
+                <ScalarProperty Name="Presence_TimeMLesson" ColumnName="Presence_TimeMLesson" />
+                <ScalarProperty Name="Presence_TimeELesson" ColumnName="Presence_TimeELesson" />
+                <ScalarProperty Name="Presence_Hour" ColumnName="Presence_Hour" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Tbl">
+            <EntityTypeMapping TypeName="Project_FinishModel.Student_Tbl">
+              <MappingFragment StoreEntitySet="Student_Tbl">
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Student_Name" ColumnName="Student_Name" />
+                <ScalarProperty Name="Student_Image" ColumnName="Student_Image" />
+                <ScalarProperty Name="Student_Grade_Code" ColumnName="Student_Grade_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentsClassroom_Tbl">
+            <EntityTypeMapping TypeName="Project_FinishModel.StudentsClassroom_Tbl">
+              <MappingFragment StoreEntitySet="StudentsClassroom_Tbl">
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Grade_Code" ColumnName="Grade_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
