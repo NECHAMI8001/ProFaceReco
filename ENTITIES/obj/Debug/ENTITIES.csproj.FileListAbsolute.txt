@@ -1,0 +1,6 @@
+C:\Users\User\source\repos\FaceRecognition\ENTITIES\bin\Debug\ENTITIES.dll
+C:\Users\User\source\repos\FaceRecognition\ENTITIES\bin\Debug\ENTITIES.pdb
+C:\Users\User\source\repos\FaceRecognition\ENTITIES\obj\Debug\ENTITIES.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\FaceRecognition\ENTITIES\obj\Debug\ENTITIES.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\FaceRecognition\ENTITIES\obj\Debug\ENTITIES.dll
+C:\Users\User\source\repos\FaceRecognition\ENTITIES\obj\Debug\ENTITIES.pdb
