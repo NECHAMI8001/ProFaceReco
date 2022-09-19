@@ -1,0 +1,15 @@
+C:\Users\User\source\repos\FaceRecognition\BL\bin\Debug\BL.dll.config
+C:\Users\User\source\repos\FaceRecognition\BL\bin\Debug\BL.dll
+C:\Users\User\source\repos\FaceRecognition\BL\bin\Debug\BL.pdb
+C:\Users\User\source\repos\FaceRecognition\BL\bin\Debug\DAL.dll
+C:\Users\User\source\repos\FaceRecognition\BL\bin\Debug\EntityFramework.dll
+C:\Users\User\source\repos\FaceRecognition\BL\bin\Debug\DAL.pdb
+C:\Users\User\source\repos\FaceRecognition\BL\bin\Debug\DAL.dll.config
+C:\Users\User\source\repos\FaceRecognition\BL\obj\Debug\BL.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\FaceRecognition\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\FaceRecognition\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\User\source\repos\FaceRecognition\BL\obj\Debug\BL.dll
+C:\Users\User\source\repos\FaceRecognition\BL\obj\Debug\BL.pdb
+C:\Users\User\source\repos\FaceRecognition\BL\bin\Debug\Models.dll
+C:\Users\User\source\repos\FaceRecognition\BL\bin\Debug\Models.pdb
+C:\Users\User\source\repos\FaceRecognition\BL\bin\Debug\Models.dll.config
